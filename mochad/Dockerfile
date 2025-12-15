@@ -3,6 +3,7 @@ FROM ${BUILD_FROM:-ghcr.io/home-assistant/amd64-base:3.23} AS build
 
 WORKDIR /tmp
 
+# hadolint ignore=DL3018
 RUN apk add --update --no-cache \
     git cmake make autoconf automake \
     libusb-dev gcc g++ && \
@@ -15,6 +16,7 @@ RUN git clone https://github.com/sigmdel/mochad.git && \
 FROM ${BUILD_FROM:-ghcr.io/home-assistant/amd64-base:3.23} AS final
 
 COPY --from=build --chmod=0755 /tmp/mochad/mochad /usr/bin/mochad
+# hadolint ignore=DL3018
 RUN apk add --update --no-cache \
     libusb && \
     rm -rf /var/cache/apk /lib/apk/db
