@@ -4,7 +4,7 @@ description: >-
   Control X-10 ActiveHome and PowerHouse devices
   in Home Assistant
 version: dev
-# image: ghcr.io/pascalrrr/mochad/{arch}
+image: ghcr.io/pascalrrr/mochad/{arch}
 slug: mochad
 init: false
 url: https://pascalrr.gay/redirect/mochad-github
